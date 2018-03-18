@@ -9,7 +9,7 @@
     "eslint": "eslint test lib",
     "test:debug": "mocha --debug-brk 'test/**/test-*.js'",
     "start": "webpack-dev-server --hot",
-    "deploy": "surge --project dist --domain frontend-testing.surge.sh"
+    "deploy": "surge --project dist --domain  frontend-testing.surge.sh"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,6 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "express": "^4.16.3",
     "install": "^0.10.4",
     "jsdom": "^11.6.2",
     "mocha": "^5.0.4",
@@ -49,6 +48,7 @@
   "dependencies": {
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-node": "^6.0.1",
+    "express": "4.16.0",
     "eyes.selenium": "0.0.78",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
