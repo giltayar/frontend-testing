@@ -9,7 +9,7 @@
     "eslint": "eslint test lib",
     "test:debug": "mocha --debug-brk 'test/**/test-*.js'",
     "start": "webpack-dev-server --hot",
-    "deploy": "surge --project dist --domain frontend-testing.surge.sh"
+    "deploy": "surge --project dist --domain  frontend-testing.surge.sh"
   },
   "repository": {
     "type": "git",
