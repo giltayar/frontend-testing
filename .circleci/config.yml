@@ -7,11 +7,10 @@ jobs:
     steps:
       - checkout
 
+      - run: npm install
+      - run: npm run build
       - run:
-          command: |
-            npm install
-            npm run build
-      - run:
+          name: test
           command: |
             export APPLITOOLS_BATCH_ID=`git rev-parse HEAD`
             echo $APPLITOOLS_BATCH_ID
