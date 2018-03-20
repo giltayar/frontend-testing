@@ -36,7 +36,7 @@ describe('calculator app visual test', function () {
     eyes.setApiKey(process.env.APPLITOOLS_API_KEY)
     eyes.setBatch(null, process.env.APPLITOOLS_BATCH_ID)
 
-    await eyes.open(driver, 'Calculator App', 'Calculator App: E2E', {width: 800, height: 600})
+    await eyes.open(driver, 'Calculator App', 'Calculator App: E2E', {width: 400, height: 250})
   })
 
   after(async () => {
