@@ -12,6 +12,5 @@ jobs:
       - run:
           name: test
           command: |
-            export APPLITOOLS_BATCH_ID=`git rev-parse HEAD`
-            echo $APPLITOOLS_BATCH_ID
+            APPLITOOLS_BATCH_ID=$CIRCLE_SHA1
             npm test
