@@ -7,19 +7,6 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Run this test",
-      "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
-      "args": [
-        "${file}",
-        "--no-timeouts"
-      ],
-      "stopOnEntry": false,
-      "cwd": "${workspaceRoot}",
-      "internalConsoleOptions": "openOnFirstSessionStart"
-    },
-    {
-      "type": "node",
-      "request": "launch",
       "name": "Run all tests",
       "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
       "args": [
@@ -29,12 +16,6 @@
       "stopOnEntry": false,
       "cwd": "${workspaceRoot}",
       "internalConsoleOptions": "openOnFirstSessionStart"
-    },
-    {
-      "type": "node",
-      "request": "attach",
-      "name": "Attach to Process",
-      "port": 5858
     }
   ]
 }

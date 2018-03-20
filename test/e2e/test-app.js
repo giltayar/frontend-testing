@@ -1,6 +1,5 @@
 const {describe, it, before, after} = require('mocha')
 const {expect} = require('chai')
-const {Eyes} = require('eyes.selenium')
 const path = require('path')
 const express = require('express')
 const retry = require('promise-retry')
@@ -63,46 +62,6 @@ describe('calculator app', function () {
       const displayText = await displayElement.getText()
 
       expect(displayText).to.equal('84')
-    })
-  })
-
-  if (!process.env.APPLITOOLS_APIKEY) {
-    console.warn('******** Skipping visual tests ************\n' +
-      'To run them, set the APPLITOOLS_APIKEY environment variable with your Applitools API Key.')
-    return
-  }
-
-  describe('visual testing', () => {
-    let eyes
-    before(async () => {
-      eyes = new Eyes()
-
-      eyes.setApiKey(process.env.APPLITOOLS_APIKEY)
-
-      await eyes.open(driver, 'Calculator App', 'Tests', {width: 800, height: 600})
-    })
-
-    after(async () => {
-      await eyes.close()
-    })
-
-    it('should look good', async function () {
-      await driver.get('http://localhost:8080')
-
-      await eyes.checkWindow('Initial Page')
-
-      const digit4Element = await driver.findElement(By.css('.digit-4'))
-      const digit2Element = await driver.findElement(By.css('.digit-2'))
-      const operatorMultiply = await driver.findElement(By.css('.operator-multiply'))
-      const operatorEquals = await driver.findElement(By.css('.operator-equals'))
-
-      await digit4Element.click()
-      await digit2Element.click()
-      await operatorMultiply.click()
-      await digit2Element.click()
-      await operatorEquals.click()
-
-      await eyes.checkWindow('After calculating 42 * 2 =')
     })
   })
 })

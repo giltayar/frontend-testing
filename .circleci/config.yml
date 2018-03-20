@@ -4,32 +4,15 @@ jobs:
       - image: circleci/node:8.9-browsers
 
     working_directory: ~/repo
-    environment:
-      # MOCHA_REPORTER: --reporter mocha-junit-reporter
-      # MOCHA_FILE: $CIRCLE_TEST_REPORTS/junit/test-results.xml
-
-    store_test_results:
-      path: junit
-
     steps:
       - checkout
 
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package-lock.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run:
-          command: npm install && npm run build
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
-
       - run:
           command: |
-            export APPLITOOLS_BATCH_ID=$CIRCLE_SHA1
+            npm install
+            npm run build
+      - run:
+          command: |
+            export APPLITOOLS_BATCH_ID=`git rev-parse HEAD`
             echo $APPLITOOLS_BATCH_ID
             npm test
