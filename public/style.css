@@ -9,9 +9,10 @@ td, th {
 }
 
 td.operator {
-  background-color: grey;
+  background-color: yellow;
 }
 
 td.operator:hover {
   background-color: lightgrey;
 }
+
