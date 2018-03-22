@@ -66,9 +66,9 @@ describe('calculator app', function () {
     })
   })
 
-  if (!process.env.APPLITOOLS_APIKEY) {
+  if (!process.env.APPLITOOLS_API_KEY) {
     console.warn('******** Skipping visual tests ************\n' +
-      'To run them, set the APPLITOOLS_APIKEY environment variable with your Applitools API Key.')
+      'To run them, set the APPLITOOLS_API_KEY environment variable with your Applitools API Key.')
     return
   }
 
@@ -77,7 +77,8 @@ describe('calculator app', function () {
     before(async () => {
       eyes = new Eyes()
 
-      eyes.setApiKey(process.env.APPLITOOLS_APIKEY)
+      eyes.setApiKey(process.env.APPLITOOLS_API_KEY)
+      eyes.setBatch(null, process.env.APPLITOOLS_BATCH_ID)
 
       await eyes.open(driver, 'Calculator App', 'Tests', {width: 800, height: 600})
     })
@@ -103,6 +104,15 @@ describe('calculator app', function () {
       await operatorEquals.click()
 
       await eyes.checkWindow('After calculating 42 * 2 =')
+	  await digit4Element.click()
+      await digit2Element.click()
+      await operatorMultiply.click()
+      await digit2Element.click()
+	  await operatorMultiply.click()
+	  await digit2Element.click()
+      await operatorEquals.click()
+
+      await eyes.checkWindow('After calculating 42*2*2=')
     })
   })
 })
