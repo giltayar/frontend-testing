@@ -56,7 +56,7 @@
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-node": "^6.0.1",
     "eyes.selenium": "0.0.78",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0"
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
   }
 }
